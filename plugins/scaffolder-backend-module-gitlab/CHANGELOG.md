@@ -1,5 +1,20 @@
 # @backstage/plugin-scaffolder-backend-module-gitlab
 
+## 0.4.1
+
+### Patch Changes
+
+- cf96041: Added `gitlab:issue:edit` action to edit existing GitLab issues
+- d44a20a: Added additional plugin metadata to `package.json`.
+- 829e0ec: Add new `gitlab:pipeline:trigger` action to trigger GitLab pipelines.
+- Updated dependencies
+  - @backstage/backend-plugin-api@0.6.19
+  - @backstage/backend-common@0.23.0
+  - @backstage/integration@1.12.0
+  - @backstage/plugin-scaffolder-node@0.4.5
+  - @backstage/config@1.2.0
+  - @backstage/errors@1.2.4
+
 ## 0.4.1-next.3
 
 ### Patch Changes

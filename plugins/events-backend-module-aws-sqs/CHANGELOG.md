@@ -1,5 +1,18 @@
 # @backstage/plugin-events-backend-module-aws-sqs
 
+## 0.3.5
+
+### Patch Changes
+
+- d44a20a: Added additional plugin metadata to `package.json`.
+- Updated dependencies
+  - @backstage/backend-tasks@0.5.24
+  - @backstage/backend-plugin-api@0.6.19
+  - @backstage/backend-common@0.23.0
+  - @backstage/plugin-events-node@0.3.5
+  - @backstage/config@1.2.0
+  - @backstage/types@1.1.1
+
 ## 0.3.5-next.3
 
 ### Patch Changes

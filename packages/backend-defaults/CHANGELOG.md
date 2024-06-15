@@ -1,5 +1,41 @@
 # @backstage/backend-defaults
 
+## 0.3.0
+
+### Minor Changes
+
+- 662dce8: **BREAKING**: The `workdir` argument have been removed from The `GerritUrlReader` constructor.
+
+  **BREAKING**: The Gerrit `readTree` implementation will now only use the Gitiles api. Support
+  for using git to clone the repo has been removed.
+
+- 02103be: Deprecated and moved over core services to `@backstage/backend-defaults`
+
+### Patch Changes
+
+- 1897169: Exposed `DefaultSchedulerService`
+- e171620: Remove dependency with `@backstage/backend-commons` package.
+- 6551b3d: Added core service factories and implementations from
+  `@backstage/backend-app-api`. They are now available as subpath exports, e.g.
+  `@backstage/backend-defaults/scheduler` is where the service factory and default
+  implementation of `coreServices.scheduler` now lives. They have been marked as
+  deprecated in their old locations.
+- 8aab451: Internal minor refactors of the database connectors
+- 0634fdc: Deprecated `dropDatabase`
+- b2ee7f3: Moved over all URL reader functionality from `@backstage/backend-common` to `@backstage/backend-defaults/urlReader`. Please update your imports.
+- Updated dependencies
+  - @backstage/backend-app-api@0.7.6
+  - @backstage/backend-plugin-api@0.6.19
+  - @backstage/integration@1.12.0
+  - @backstage/plugin-events-node@0.3.5
+  - @backstage/plugin-permission-node@0.7.30
+  - @backstage/config-loader@1.8.1
+  - @backstage/backend-dev-utils@0.1.4
+  - @backstage/config@1.2.0
+  - @backstage/errors@1.2.4
+  - @backstage/integration-aws-node@0.1.12
+  - @backstage/types@1.1.1
+
 ## 0.3.0-next.3
 
 ### Patch Changes

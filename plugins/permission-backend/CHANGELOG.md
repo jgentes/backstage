@@ -1,5 +1,19 @@
 # @backstage/plugin-permission-backend
 
+## 0.5.43
+
+### Patch Changes
+
+- d44a20a: Added additional plugin metadata to `package.json`.
+- Updated dependencies
+  - @backstage/backend-plugin-api@0.6.19
+  - @backstage/backend-common@0.23.0
+  - @backstage/plugin-auth-node@0.4.14
+  - @backstage/plugin-permission-node@0.7.30
+  - @backstage/plugin-permission-common@0.7.14
+  - @backstage/config@1.2.0
+  - @backstage/errors@1.2.4
+
 ## 0.5.43-next.3
 
 ### Patch Changes

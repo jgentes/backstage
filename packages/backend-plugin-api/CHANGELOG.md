@@ -1,5 +1,35 @@
 # @backstage/backend-plugin-api
 
+## 0.6.19
+
+### Patch Changes
+
+- 9bdc3e8: In tests, return `null` rather than throwing an error when trying to get the `ExtensionPoint.T` property, so that tests asserting the property are not easily broken.
+- 9e63318: Added an optional `accessRestrictions` to external access service tokens and service principals in general, such that you can limit their access to certain plugins or permissions.
+- 3aa3fc7: Marked the `TokenManagerService` and `IdentityService` types as deprecated
+- b2ee7f3: Deprecated all of the `UrlReader` related type names and replaced them with prefixed versions. Please update your imports.
+
+  - `ReadTreeOptions` was renamed to `UrlReaderServiceReadTreeOptions`
+  - `ReadTreeResponse` was renamed to `UrlReaderServiceReadTreeResponse`
+  - `ReadTreeResponseDirOptions` was renamed to `UrlReaderServiceReadTreeResponseDirOptions`
+  - `ReadTreeResponseFile` was renamed to `UrlReaderServiceReadTreeResponseFile`
+  - `ReadUrlResponse` was renamed to `UrlReaderServiceReadUrlResponse`
+  - `ReadUrlOptions` was renamed to `UrlReaderServiceReadUrlOptions`
+  - `SearchOptions` was renamed to `UrlReaderServiceSearchOptions`
+  - `SearchResponse` was renamed to `UrlReaderServiceSearchResponse`
+  - `SearchResponseFile` was renamed to `UrlReaderServiceSearchResponseFile`
+
+- 6551b3d: Moved the declaration of the `SchedulerService` here, along with prefixed versions of all of the types it depends on, from `@backstage/backend-tasks`
+- 0665b7e: Renamed `BackendPluginConfig`, `BackendModuleConfig`, and `ExtensionPointConfig` respectively to `CreateBackendPluginOptions`, `CreateBackendModuleOptions`, and `CreateExtensionPointOptions` to standardize frontend and backend factories signatures.
+- 1779188: Start using the `isDatabaseConflictError` helper from the `@backstage/backend-plugin-api` package in order to avoid dependency with the soon to deprecate `@backstage/backend-common` package.
+- Updated dependencies
+  - @backstage/plugin-auth-node@0.4.14
+  - @backstage/plugin-permission-common@0.7.14
+  - @backstage/cli-common@0.1.14
+  - @backstage/config@1.2.0
+  - @backstage/errors@1.2.4
+  - @backstage/types@1.1.1
+
 ## 0.6.19-next.3
 
 ### Patch Changes

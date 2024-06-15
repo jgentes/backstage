@@ -1,5 +1,19 @@
 # @backstage/plugin-catalog-backend-module-gcp
 
+## 0.1.20
+
+### Patch Changes
+
+- d44a20a: Added additional plugin metadata to `package.json`.
+- Updated dependencies
+  - @backstage/backend-tasks@0.5.24
+  - @backstage/backend-plugin-api@0.6.19
+  - @backstage/backend-common@0.23.0
+  - @backstage/plugin-kubernetes-common@0.8.0
+  - @backstage/plugin-catalog-node@1.12.1
+  - @backstage/catalog-model@1.5.0
+  - @backstage/config@1.2.0
+
 ## 0.1.20-next.3
 
 ### Patch Changes
