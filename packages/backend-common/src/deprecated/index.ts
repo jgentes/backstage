@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+import { Config } from '@backstage/config';
+
 // eslint-disable-next-line @backstage/no-relative-monorepo-imports
 import { CacheManager as _CacheManager } from '../../../backend-defaults/src/entrypoints/cache/CacheManager';
 // eslint-disable-next-line @backstage/no-relative-monorepo-imports
@@ -22,15 +24,27 @@ import {
   type CacheManagerOptions as _CacheManagerOptions,
 } from '../../../backend-defaults/src/entrypoints/cache/types';
 
+// eslint-disable-next-line @backstage/no-relative-monorepo-imports
 import {
+  dropDatabase as _dropDatabase,
+  DatabaseManager as _DatabaseManager,
+  type DatabaseManagerOptions as _DatabaseManagerOptions,
+  type LegacyRootDatabaseService as _LegacyRootDatabaseService,
+} from '../../../backend-defaults/src/entrypoints/database/DatabaseManager';
+
+import {
+  LifecycleService,
+  PluginMetadataService,
   CacheService,
   CacheServiceOptions,
   CacheServiceSetOptions,
+  DatabaseService as _PluginDatabaseManager,
   isDatabaseConflictError as _isDatabaseConflictError,
   resolvePackagePath as _resolvePackagePath,
   resolveSafeChildPath as _resolveSafeChildPath,
   isChildPath as _isChildPath,
 } from '@backstage/backend-plugin-api';
+import _ from 'lodash';
 
 export * from './scm';
 export * from './tokens';
@@ -70,6 +84,55 @@ export type CacheClientSetOptions = CacheServiceSetOptions;
  * @deprecated Use `CacheServiceOptions` from the `@backstage/backend-plugin-api` package instead
  */
 export type CacheClientOptions = CacheServiceOptions;
+
+/**
+ * @public
+ * @deprecated Use `DatabaseManager` from the `@backstage/backend-defaults` package instead
+ */
+export class DatabaseManager implements LegacyRootDatabaseService {
+  private constructor(private readonly _databaseManager: _DatabaseManager) {}
+
+  static fromConfig(
+    config: Config,
+    options?: DatabaseManagerOptions,
+  ): DatabaseManager {
+    const _databaseManager = _DatabaseManager.fromConfig(config, options);
+    return new DatabaseManager(_databaseManager);
+  }
+
+  forPlugin(
+    pluginId: string,
+    deps?:
+      | { lifecycle: LifecycleService; pluginMetadata: PluginMetadataService }
+      | undefined,
+  ): PluginDatabaseManager {
+    return this._databaseManager.forPlugin(pluginId, deps);
+  }
+}
+
+/**
+ * @public
+ * @deprecated Use `DatabaseManagerOptions` from the `@backstage/backend-defaults` package instead
+ */
+export type DatabaseManagerOptions = _DatabaseManagerOptions;
+
+/**
+ * @public
+ * @deprecated Use `DatabaseService` from the `@backstage/backend-plugin-api` package instead
+ */
+export type PluginDatabaseManager = _PluginDatabaseManager;
+
+/**
+ * @public
+ * @deprecated Use `LegacyRootDatabaseService` from the `@backstage/backend-defaults` package instead
+ */
+export type LegacyRootDatabaseService = _LegacyRootDatabaseService;
+
+/**
+ * @public
+ * @deprecated Use `dropDatabase` from the `@backstage/backend-defaults` package instead
+ */
+export const dropDatabase = _dropDatabase;
 
 /**
  * @public
